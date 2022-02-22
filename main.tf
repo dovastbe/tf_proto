@@ -35,6 +35,7 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = [aws_security_group.web-sg.id]
   tags = {
     Function = "Web"
+    Name     = "dovastbe-web"
   }
   user_data = <<-EOF
               #!/bin/bash
