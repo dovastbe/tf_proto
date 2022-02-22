@@ -36,6 +36,7 @@ resource "aws_instance" "web" {
   tags = {
     Function = "Web"
     Name     = "dovastbe-web"
+    AppCode  = "ABC"
   }
   user_data = <<-EOF
               #!/bin/bash
