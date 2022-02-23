@@ -21,8 +21,7 @@ module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 3.0"
 
-  name          = var.vms.host1.name
-  ami           = var.vms.host1.ami
+  name          = "web"
+  ami           = "ami-0ad8ecac8af5fc52b"
   instance_type = "t2.micro"
-  tags          = var.vms.host1.tags
 }
