@@ -22,7 +22,7 @@ variable "AppCode" {
   type        = string
   description = "The associated Application code"
   validation {
-    condition     = length(var.image_id) == 3
+    condition     = length(var.AppCode) == 3
     error_message = "The AppCode should be a 3 letters."
   }
 }
