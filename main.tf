@@ -1,5 +1,13 @@
 terraform {
   required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 4.0.0"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = ">= 3.0.0"
+    }
   }
   required_version = ">= 1.1.0"
 
@@ -14,8 +22,7 @@ terraform {
 
 
 provider "aws" {
-  region  = var.Region
-  version = "4.2.0"
+  region = var.Region
 }
 
 module "ec2_instance" {
