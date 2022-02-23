@@ -14,12 +14,13 @@ terraform {
 
 
 provider "aws" {
-  region = var.Region
+  region  = var.Region
+  version = "4.2.0"
 }
 
 module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = "~> 3.0"
+  version = "3.4.0"
 
   name          = "web"
   ami           = "ami-0ad8ecac8af5fc52b"
