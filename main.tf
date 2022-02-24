@@ -26,9 +26,9 @@ provider "aws" {
 }
 
 module "ec2_instance" {
-  source  = "terraform-aws-modules/ec2-instance/aws"
-  version = "3.4.0"
-  for_each      = var.ec2_instances
+  source   = "terraform-aws-modules/ec2-instance/aws"
+  version  = "3.4.0"
+  for_each = var.ec2_instances
 
   name          = each.value.name
   ami           = each.value.image_id
@@ -36,13 +36,13 @@ module "ec2_instance" {
 }
 
 module "db" {
-  source  = "terraform-aws-modules/rds/aws"
-  for_each      = var.rds
+  source   = "terraform-aws-modules/rds/aws"
+  for_each = var.rds
 
-  identifier        = each.value.identifier
-  engine            = each.value.engine
+  identifier           = each.value.identifier
+  engine               = each.value.engine
   major_engine_version = each.value.major_engine_version
-  family            = each.value.family
-  instance_class    = "db.t2.micro"
-  allocated_storage = each.value.allocated_storage
+  family               = each.value.family
+  instance_class       = "db.t2.micro"
+  allocated_storage    = each.value.allocated_storage
 }

@@ -33,14 +33,14 @@ variable "AppDesc" {
 }
 
 variable "ec2_instances" {
-  default = {}
-  type = map
+  default     = {}
+  type        = map(any)
   description = "Virutal machine variables"
 }
 
 variable "rds" {
-  default = {}
-  type = map
+  default     = {}
+  type        = map(any)
   description = "Database variables"
 }
 
@@ -56,11 +56,11 @@ variable "image_id" {
 }
 
 variable "AWS_ACCESS_KEY_ID" {
-  type = string
+  type      = string
   sensitive = true
 }
 
 variable "AWS_SECRET_ACCESS_KEY" {
-  type = string
+  type      = string
   sensitive = true
 }
