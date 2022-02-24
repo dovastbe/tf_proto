@@ -32,18 +32,16 @@ variable "AppDesc" {
   description = "The associated Application Description"
 }
 
-variable "vms" {
-  type = list(object({
-    name       = string
-    os         = string
-    image_id   = string
-    open_ports = list(string)
-    tags = object({
-      function = string
-    })
-    })
-  )
+variable "ec2_instances" {
+  default = {}
+  type = map
   description = "Virutal machine variables"
+}
+
+variable "rds" {
+  default = {}
+  type = map
+  description = "Database variables"
 }
 
 
