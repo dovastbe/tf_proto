@@ -27,7 +27,7 @@ provider "aws" {
 
 module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-
+  version = "3.4.0"
   for_each      = var.ec2_instances
 
   name          = each.value.name

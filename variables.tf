@@ -54,3 +54,13 @@ variable "image_id" {
     error_message = "The image_id value must be a valid AMI id, starting with \"ami-\"."
   }
 }
+
+variable "AWS_ACCESS_KEY_ID" {
+  type = string
+  sensitive = true
+}
+
+variable "AWS_SECRET_ACCESS_KEY" {
+  type = string
+  sensitive = true
+}
