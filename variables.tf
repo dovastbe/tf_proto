@@ -32,18 +32,16 @@ variable "AppDesc" {
   description = "The associated Application Description"
 }
 
-variable "vms" {
-  type = list(object({
-    name       = string
-    os         = string
-    image_id   = string
-    open_ports = list(string)
-    tags = object({
-      function = string
-    })
-    })
-  )
+variable "ec2_instances" {
+  default     = {}
+  type        = map(any)
   description = "Virutal machine variables"
+}
+
+variable "rds" {
+  default     = {}
+  type        = map(any)
+  description = "Database variables"
 }
 
 
@@ -55,4 +53,14 @@ variable "image_id" {
     condition     = length(var.image_id) > 4 && substr(var.image_id, 0, 4) == "ami-"
     error_message = "The image_id value must be a valid AMI id, starting with \"ami-\"."
   }
+}
+
+variable "AWS_ACCESS_KEY_ID" {
+  type      = string
+  sensitive = true
+}
+
+variable "AWS_SECRET_ACCESS_KEY" {
+  type      = string
+  sensitive = true
 }
