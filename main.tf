@@ -26,6 +26,7 @@ provider "aws" {
 }
 
 module "ec2_instance" {
+  count = var.vms ? 1 : 0
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "3.4.0"
 
